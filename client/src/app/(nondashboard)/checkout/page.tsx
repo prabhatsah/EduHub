@@ -8,7 +8,6 @@ const CheckoutWizard = () => {
   const { isLoaded } = useUser();
 
   if (!isLoaded) return <Loading />;
-  const checkoutStep = 3;
 
   const renderStep = () => {
     switch (checkoutStep) {
