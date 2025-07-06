@@ -542,6 +542,8 @@ input[type="color"] {
 
 .dashboard__content {
   @apply flex flex-1 overflow-hidden;
+  /* margin-left: 170px; */
+  /* margin-left: var(--sidebar-width); */
 }
 
 .dashboard__main {
