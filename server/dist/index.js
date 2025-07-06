@@ -67,7 +67,7 @@ app.use((0, cors_1.default)());
 app.get("/", (req, res) => {
     res.send("Hello world");
 });
-app.use("/course", courseRoutes_1.default);
+app.use("/courses", courseRoutes_1.default);
 app.use("/users/clerk", userClerkRoutes_1.default);
 app.use("/transactions", (0, express_2.requireAuth)(), transactionRoutes_1.default);
 const port = process.env.PORT || 3000;

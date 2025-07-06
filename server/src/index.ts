@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
   res.send("Hello world");
 });
 
-app.use("/course", courseRoutes);
+app.use("/courses", courseRoutes);
 app.use("/users/clerk", userClerkRoutes);
 app.use("/transactions", requireAuth(), transactionRoutes);
 

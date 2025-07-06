@@ -1,10 +1,13 @@
-import stripe, { Stripe } from "stripe";
+import { Stripe } from "stripe";
 import dotenv from "dotenv";
 import { Request, Response } from "express";
 
 dotenv.config({});
 
 if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error(
+    "STRIPE_SECRET_KEY os required but was not found in env variables"
+  );
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -13,7 +16,7 @@ export const createStripePaymentIntent = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const { amount } = req.body;
+  let { amount } = req.body;
 
   if (!amount || amount <= 0) {
     amount = 50;
@@ -25,7 +28,7 @@ export const createStripePaymentIntent = async (
       currency: "usd",
       automatic_payment_methods: {
         enabled: true,
-        allow_redirects: true,
+        allow_redirects: "never",
       },
     });
 

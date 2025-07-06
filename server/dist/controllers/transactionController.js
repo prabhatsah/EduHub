@@ -17,10 +17,11 @@ const stripe_1 = require("stripe");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config({});
 if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error("STRIPE_SECRET_KEY os required but was not found in env variables");
 }
 const stripe = new stripe_1.Stripe(process.env.STRIPE_SECRET_KEY);
 const createStripePaymentIntent = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { amount } = req.body;
+    let { amount } = req.body;
     if (!amount || amount <= 0) {
         amount = 50;
     }
@@ -30,7 +31,7 @@ const createStripePaymentIntent = (req, res) => __awaiter(void 0, void 0, void 0
             currency: "usd",
             automatic_payment_methods: {
                 enabled: true,
-                allow_redirects: true,
+                allow_redirects: "never",
             },
         });
         res.json({
