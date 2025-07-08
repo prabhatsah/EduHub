@@ -10,9 +10,9 @@ const CheckoutDetailsPage = () => {
   debugger;
 
   if (isLoading) return <Loading />;
-  if (isError) return <div>Failed to fetch coursessssss</div>;
+  if (isError) return <div>Failed to fetch course</div>;
   if (!selectedCourse) return <div>Course not found</div>;
-  return <div>CheckoutDetailsPage</div>;
+  return <div>Checkout Details Page loaded</div>;
 };
 
 export default CheckoutDetailsPage;
