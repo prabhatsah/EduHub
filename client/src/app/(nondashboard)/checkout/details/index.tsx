@@ -12,7 +12,7 @@ const CheckoutDetailsPage = () => {
   if (isLoading) return <Loading />;
   if (isError) return <div>Failed to fetch course</div>;
   if (!selectedCourse) return <div>Course not found</div>;
-  return <div>Checkout Details Page loaded</div>;
+  return <div>Checkout Page loaded</div>;
 };
 
 export default CheckoutDetailsPage;
