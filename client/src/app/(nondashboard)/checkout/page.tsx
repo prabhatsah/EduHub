@@ -17,7 +17,7 @@ const CheckoutWizard = () => {
       case 1:
         return <CheckoutDetailsPage />;
       case 2:
-        return "payment page";
+        return "payment pages ";
       case 3:
         return "completion page";
       default:
